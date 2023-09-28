@@ -33,7 +33,7 @@ export class SummonerAPI {
           'X-Riot-Token': this.apiKey,
         },
       });
-
+      console.log(response.data);
       return response.data as Summoner;
     } catch (error) {
       console.error('Error fetching summoner:', error);
