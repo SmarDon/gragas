@@ -1,0 +1,30 @@
+{
+  "name": "gragas",
+  "version": "1.0.7",
+  "description": "small api wrapper",
+  "main": "dist/index.js",
+  "devDependencies": {
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "axios": "^1.5.1",
+    "dotenv": "^16.3.1",
+    "tslib": "^2.6.2"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "tsc & node test-gragas"
+  },
+  "keywords": [
+    "league",
+    "leagueoflegends",
+    "lol",
+    "ts",
+    "typescript"
+  ],
+  "files": [
+    "dist"
+  ],
+  "author": "smardon",
+  "license": "MIT"
+}
