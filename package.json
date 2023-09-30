@@ -1,6 +1,6 @@
 {
   "name": "gragas",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "small api wrapper",
   "main": "dist/index.js",
   "devDependencies": {
