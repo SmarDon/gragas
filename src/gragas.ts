@@ -1,12 +1,14 @@
-import { Summoner } from './types';
+import { Status, Summoner } from './types';
 import { SummonerAPI } from './endpoints/summoner';
+import { StatusAPI } from './endpoints/lolStatus';
 
 export class Gragas {
   private apiKey: string;
   private summonerAPI: SummonerAPI;
+  private statusAPI: StatusAPI;
 
-  private initialize() {
-    console.log(`initialized with api key: ${this.apiKey}`);
+  private async initialize() {
+    if (this.apiKey) console.log('Initialized');
   }
 
   constructor(apiKey: string) {
@@ -15,8 +17,14 @@ export class Gragas {
 
     // Endpoints
     this.summonerAPI = new SummonerAPI(apiKey);
+    this.statusAPI = new StatusAPI(apiKey);
   }
 
+  // Status endpoint
+  async getStatus(): Promise<Status | null> {
+    return this.statusAPI.getStatus();
+  }
+  // Summoner endpoint
   async getSummonerByName(summonerName: string): Promise<Summoner | null> {
     return this.summonerAPI.getSummonerByName(summonerName);
   }

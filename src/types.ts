@@ -7,3 +7,11 @@ export interface Summoner {
   revisionDate: number;
   summonerLevel: number;
 }
+
+export interface Status {
+  id: string;
+  name: string;
+  locales: ReadonlyArray<any>;
+  maintenances: ReadonlyArray<any>;
+  incidents: ReadonlyArray<any>;
+}
