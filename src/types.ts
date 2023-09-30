@@ -15,3 +15,14 @@ export interface Status {
   maintenances: ReadonlyArray<any>;
   incidents: ReadonlyArray<any>;
 }
+
+export interface Match {
+  metadata: Metadata;
+  info: object;
+}
+
+export interface Metadata {
+  dataversion: string;
+  matchId: string;
+  participants: Array<string>;
+}

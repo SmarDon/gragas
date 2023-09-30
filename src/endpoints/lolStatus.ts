@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { RIOT_API_BASE_URL, STATUS_URL } from '../constants';
+import { RIOT_API_EUW_BASE_URL, STATUS_URL } from '../constants';
 import { Status } from '../types';
 
 export class StatusAPI {
@@ -8,7 +8,7 @@ export class StatusAPI {
 
   constructor(apiKey: string) {
     this.apiKey = apiKey;
-    this.url = RIOT_API_BASE_URL + STATUS_URL;
+    this.url = RIOT_API_EUW_BASE_URL + STATUS_URL;
   }
 
   async getStatus(): Promise<Status | null> {
@@ -21,7 +21,7 @@ export class StatusAPI {
 
       return response.data as Status;
     } catch (error) {
-      console.error('Error fetching summoner:', error);
+      console.error('Error fetching status:', error);
       return null;
     }
   }

@@ -8,7 +8,7 @@ export class SummonerAPI {
 
   constructor(apiKey: string) {
     this.apiKey = apiKey;
-    this.url = constants.RIOT_API_BASE_URL + constants.SUMMONER_URL;
+    this.url = constants.RIOT_API_EUW_BASE_URL + constants.SUMMONER_URL;
   }
 
   async getSummonerByName(summonerName: string): Promise<Summoner | null> {
