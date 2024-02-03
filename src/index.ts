@@ -1,1 +1,4 @@
-export { Gragas } from './gragas';
+// main class of Gragas
+import Gragas from './gragas';
+
+export default Gragas;

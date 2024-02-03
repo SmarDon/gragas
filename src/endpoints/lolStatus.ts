@@ -1,28 +1,36 @@
 import axios from 'axios';
-import { RIOT_API_EUW_BASE_URL, STATUS_URL } from '../constants';
+import { STATUS } from '../helpers/constants';
+import { PLATFORM_BASE_URLS } from '../helpers/constants';
 import { Status } from '../types';
 
-export class StatusAPI {
+export default class StatusAPI {
   private apiKey: string;
-  private url: string;
+  public platform: string;
 
-  constructor(apiKey: string) {
+  constructor(apiKey: string, platform: string = 'EUW') {
     this.apiKey = apiKey;
-    this.url = RIOT_API_EUW_BASE_URL + STATUS_URL;
+    this.platform = platform;
   }
+  updatePlatform = (platform: string) => {
+    this.platform = platform;
+  };
 
-  async getStatus(): Promise<Status | null> {
+  async getStatus(platform: string): Promise<Status | void> {
+    if (this.platform !== platform) {
+      this.updatePlatform(platform);
+    }
     try {
-      const response = await axios.get(this.url, {
-        headers: {
-          'X-Riot-Token': this.apiKey,
-        },
-      });
-
+      const response = await axios.get(
+        PLATFORM_BASE_URLS[this.platform] + STATUS,
+        {
+          headers: {
+            'X-Riot-Token': this.apiKey,
+          },
+        }
+      );
       return response.data as Status;
     } catch (error) {
       console.error('Error fetching status:', error);
-      return null;
     }
   }
 }

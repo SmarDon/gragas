@@ -1,64 +1,47 @@
 import axios from 'axios';
-import { RIOT_API_BASE_URL, MATCH_URL } from '../constants';
+import { PLATFORM_BASE_URLS, MATCH } from '../helpers/constants';
 import { Match } from '../types';
 
-export class MatchAPI {
+export default class MatchAPI {
   private apiKey: string;
-  private url: string;
+  public region: string;
 
-  constructor(apiKey: string) {
+  constructor(apiKey: string, region: string = 'EUW') {
     this.apiKey = apiKey;
-    this.url = RIOT_API_BASE_URL + MATCH_URL;
+    this.region = region;
   }
-
   async getMatchesByPuuid(
     puuid: string,
     count: number,
     index: number
-  ): Promise<Object | null> {
+  ): Promise<Match[] | void> {
     try {
       const response = await axios.get(
-        `${this.url}/by-puuid/${puuid}/ids?${index ? index : 0}&count=` + count,
-        {
-          headers: {
-            'X-Riot-Token': this.apiKey,
-          },
-        }
+        PLATFORM_BASE_URLS[this.region] + MATCH.BY_PUUID + puuid
       );
-
-      return response.data as Object;
+      return response.data as Match[];
     } catch (error) {
       console.error('Error fetching match ids:', error);
-      return null;
     }
   }
-  async getMatchById(matchId: string): Promise<Match | null> {
+  async getMatchById(matchId: string): Promise<Match | void> {
     try {
-      const response = await axios.get(`${this.url}/` + matchId, {
-        headers: {
-          'X-Riot-Token': this.apiKey,
-        },
-      });
-
+      const response = await axios.get(
+        PLATFORM_BASE_URLS[this.region] + MATCH.BY_ID + matchId
+      );
       return response.data as Match;
     } catch (error) {
-      console.error('Error fetching match:', error);
-      return null;
+      console.error('Error fetching match ids:', error);
     }
   }
-
-  async getMatchTimelineById(matchId: string): Promise<Match | null> {
+  async getMatchTimelineById(matchId: string): Promise<Match | void> {
     try {
-      const response = await axios.get(`${this.url}/` + matchId + '/timeline', {
-        headers: {
-          'X-Riot-Token': this.apiKey,
-        },
-      });
-
+      const response = await axios.get(
+        PLATFORM_BASE_URLS[this.region] + MATCH.BY_ID + matchId + '/timeline'
+      );
       return response.data as Match;
     } catch (error) {
-      console.error('Error fetching match timeline:', error);
-      return null;
+      console.error('Error fetching match ids:', error);
     }
   }
 }

@@ -24,5 +24,9 @@ export interface Match {
 export interface Metadata {
   dataversion: string;
   matchId: string;
-  participants: Array<string>;
+  participants: string[];
 }
+
+export type regionBaseUrls = {
+  [key: string]: string;
+};

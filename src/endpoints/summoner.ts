@@ -1,43 +1,40 @@
 import axios from 'axios';
 import { Summoner } from '../types';
-import * as constants from '../constants';
+import { PLATFORM_BASE_URLS, SUMMONER } from '../helpers/constants';
 
-export class SummonerAPI {
+export default class SummonerAPI {
   private apiKey: string;
-  private url: string;
+  public region: string;
 
-  constructor(apiKey: string) {
+  constructor(apiKey: string, region: string = 'EUW') {
     this.apiKey = apiKey;
-    this.url = constants.RIOT_API_EUW_BASE_URL + constants.SUMMONER_URL;
+    this.region = region;
   }
-
-  async getSummonerByName(summonerName: string): Promise<Summoner | null> {
+  async getSummonerByName(
+    summonerName: string,
+    region: string
+  ): Promise<Summoner | void> {
     try {
-      const response = await axios.get(`${this.url}/by-name/${summonerName}`, {
-        headers: {
-          'X-Riot-Token': this.apiKey,
-        },
-      });
-
+      const response = await axios.get(
+        PLATFORM_BASE_URLS[region] + SUMMONER.BY_NAME + summonerName
+      );
       return response.data as Summoner;
     } catch (error) {
       console.error('Error fetching summoner:', error);
-      return null;
     }
   }
 
-  async getSummonerByPuuid(puuid: string): Promise<Summoner | null> {
+  async getSummonerByPuuid(
+    puuid: string,
+    region: string
+  ): Promise<Summoner | void> {
     try {
-      const response = await axios.get(`${this.url}/by-puuid/${puuid}`, {
-        headers: {
-          'X-Riot-Token': this.apiKey,
-        },
-      });
-
+      const response = await axios.get(
+        PLATFORM_BASE_URLS[region] + SUMMONER.BY_PUUID + puuid
+      );
       return response.data as Summoner;
     } catch (error) {
       console.error('Error fetching summoner:', error);
-      return null;
     }
   }
 }
