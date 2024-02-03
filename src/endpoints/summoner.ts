@@ -16,7 +16,12 @@ export default class SummonerAPI {
   ): Promise<Summoner | void> {
     try {
       const response = await axios.get(
-        PLATFORM_BASE_URLS[region] + SUMMONER.BY_NAME + summonerName
+        PLATFORM_BASE_URLS[region] + SUMMONER.BY_NAME + summonerName,
+        {
+          headers: {
+            'X-Riot-Token': this.apiKey,
+          },
+        }
       );
       return response.data as Summoner;
     } catch (error) {
@@ -30,7 +35,12 @@ export default class SummonerAPI {
   ): Promise<Summoner | void> {
     try {
       const response = await axios.get(
-        PLATFORM_BASE_URLS[region] + SUMMONER.BY_PUUID + puuid
+        PLATFORM_BASE_URLS[region] + SUMMONER.BY_PUUID + puuid,
+        {
+          headers: {
+            'X-Riot-Token': this.apiKey,
+          },
+        }
       );
       return response.data as Summoner;
     } catch (error) {

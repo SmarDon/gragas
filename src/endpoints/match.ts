@@ -17,7 +17,12 @@ export default class MatchAPI {
   ): Promise<Match[] | void> {
     try {
       const response = await axios.get(
-        PLATFORM_BASE_URLS[this.region] + MATCH.BY_PUUID + puuid
+        PLATFORM_BASE_URLS[this.region] + MATCH.BY_PUUID + puuid,
+        {
+          headers: {
+            'X-Riot-Token': this.apiKey,
+          },
+        }
       );
       return response.data as Match[];
     } catch (error) {
@@ -27,7 +32,12 @@ export default class MatchAPI {
   async getMatchById(matchId: string): Promise<Match | void> {
     try {
       const response = await axios.get(
-        PLATFORM_BASE_URLS[this.region] + MATCH.BY_ID + matchId
+        PLATFORM_BASE_URLS[this.region] + MATCH.BY_ID + matchId,
+        {
+          headers: {
+            'X-Riot-Token': this.apiKey,
+          },
+        }
       );
       return response.data as Match;
     } catch (error) {
@@ -37,7 +47,12 @@ export default class MatchAPI {
   async getMatchTimelineById(matchId: string): Promise<Match | void> {
     try {
       const response = await axios.get(
-        PLATFORM_BASE_URLS[this.region] + MATCH.BY_ID + matchId + '/timeline'
+        PLATFORM_BASE_URLS[this.region] + MATCH.BY_ID + matchId + '/timeline',
+        {
+          headers: {
+            'X-Riot-Token': this.apiKey,
+          },
+        }
       );
       return response.data as Match;
     } catch (error) {
