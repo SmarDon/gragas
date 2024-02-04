@@ -4,6 +4,7 @@ import {
   StatusAPI,
   ChampionMasteryAPI,
   AccountAPI,
+  LeagueAPI,
 } from './endpoints/endpoints';
 
 export default class Gragas {
@@ -14,6 +15,7 @@ export default class Gragas {
   public match: MatchAPI;
   public championMastery: ChampionMasteryAPI;
   public account: AccountAPI;
+  public league: LeagueAPI;
 
   constructor(apiKey: string, region: string) {
     this.apiKey = apiKey;
@@ -23,5 +25,6 @@ export default class Gragas {
     this.match = new MatchAPI(apiKey);
     this.championMastery = new ChampionMasteryAPI(apiKey);
     this.account = new AccountAPI(apiKey);
+    this.league = new LeagueAPI(apiKey);
   }
 }
