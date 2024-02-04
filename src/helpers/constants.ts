@@ -46,3 +46,12 @@ export const CHAMPION_MASTERY = {
   BY_PUUID: '/lol/champion-mastery/v4/champion-masteries/by-puuid/',
   SCORES: '/lol/champion-mastery/v4/scores/by-puuid/',
 };
+
+export const LEAGUE = {
+  BY_QUEUE_CHALLENGER: '/lol/league/v4/challengerleagues/by-queue/',
+  BY_QUEUE_GRANDMASTER: '/lol/league/v4/grandmasterleagues/by-queue/',
+  BY_QUEUE_MASTER: '/lol/league/v4/masterleagues/by-queue/',
+  BY_SUMMONER: '/lol/league/v4/entries/by-summoner/',
+  ALL_ENTIRES: '/lol/league/v4/entries/',
+  BY_LEAGUE: '/lol/league/v4/leagues/',
+};
