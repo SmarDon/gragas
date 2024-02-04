@@ -13,13 +13,16 @@ yarn add gragas
 ```typescript
 import Gragas from 'gragas';
 
-// Region will default to EUW, but as of right now, you'll have to provide regions with most of the endpoints so it doesnt really matter that much.
+// Region will default to EUW, but as of right now, you'll have to provide
+// regions with most of the endpoints so it doesnt really matter that much.
 const gragas = new Gragas('RIOT_API_KEY');
 
-// Since Riot has changed to use Riot ID this will only get the summoner with the tags "#EUW1", "#NA1" and so on based on platform.
+// Since Riot has changed to use Riot ID this will only get the
+// summoner with the tags "#EUW1", "#NA1" and so on based on platform.
 const summoner = await gragas.summoner.getSummonerByName('SmarDon', 'EUW');
 
-// This will use a name and tag to get a puuid, in this case "SmarDon" is the name and "EUW1" is the tag. This can then be used for matches etc...
+// This will use a name and tag to get a puuid, in this case
+// "SmarDon" is the name and "EUW1" is the tag. This can then be used for matches etc...
 const riotAccount = await gragas.account.getPuuid('SmarDon', 'EUW1');
 ```
 
