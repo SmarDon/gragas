@@ -45,7 +45,7 @@ export default class MatchAPI {
       );
       return response.data as Match;
     } catch (error) {
-      console.error('Error fetching match ids:', error);
+      console.error('Error fetching match:', error);
     }
     return null;
   }
@@ -56,7 +56,7 @@ export default class MatchAPI {
       );
       return response.data as Match;
     } catch (error) {
-      console.error('Error fetching match ids:', error);
+      console.error('Error fetching match timeline:', error);
     }
     return null;
   }
