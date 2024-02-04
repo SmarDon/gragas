@@ -27,27 +27,27 @@ export const REGION_BASE_URLS: { [key: string]: string } = {
   OC1: 'https://sea.api.riotgames.com',
 };
 
-export const ACCOUNT = '/riot/account/v1/accounts/by-riot-id/';
+export const ACCOUNT_V1 = '/riot/account/v1/accounts/by-riot-id/';
 
-export const STATUS = '/lol/status/v4/platform-data';
+export const STATUS_V4 = '/lol/status/v4/platform-data';
 
-export const SUMMONER = {
+export const SUMMONER_V4 = {
   BY_PUUID: '/lol/summoner/v4/summoners/by-puuid/',
   BY_NAME: '/lol/summoner/v4/summoners/by-name/',
   BY_ACCOUNT_ID: '/lol/summoner/v4/summoners/by-account/',
 };
 
-export const MATCH = {
+export const MATCH_V5 = {
   BY_PUUID: '/lol/match/v5/matches/by-puuid/',
   BY_ID: '/lol/match/v5/matches/',
 };
 
-export const CHAMPION_MASTERY = {
+export const CHAMPION_MASTERY_V4 = {
   BY_PUUID: '/lol/champion-mastery/v4/champion-masteries/by-puuid/',
   SCORES: '/lol/champion-mastery/v4/scores/by-puuid/',
 };
 
-export const LEAGUE = {
+export const LEAGUE_V4 = {
   BY_QUEUE_CHALLENGER: '/lol/league/v4/challengerleagues/by-queue/',
   BY_QUEUE_GRANDMASTER: '/lol/league/v4/grandmasterleagues/by-queue/',
   BY_QUEUE_MASTER: '/lol/league/v4/masterleagues/by-queue/',
@@ -55,3 +55,5 @@ export const LEAGUE = {
   ALL_ENTIRES: '/lol/league/v4/entries/',
   BY_LEAGUE: '/lol/league/v4/leagues/',
 };
+
+export const LEAGUE_EXP_V4 = '/lol/league-exp/v4/entries/';
