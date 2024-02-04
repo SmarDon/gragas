@@ -1,3 +1,9 @@
+export interface RiotId {
+  name: string;
+  tag: string;
+  puuid: string;
+}
+
 export interface Summoner {
   id: string;
   accountId: string;
@@ -6,6 +12,19 @@ export interface Summoner {
   profileIconId: number;
   revisionDate: number;
   summonerLevel: number;
+}
+
+export interface ChampionMastery {
+  puuid: string;
+  championId: number;
+  championLevel: number;
+  championPoints: number;
+  lastPlayTime: number;
+  championPointsSinceLastLevel: number;
+  championPointsUntilNextLevel: number;
+  chestGranted: boolean;
+  tokensEarned: number;
+  summonerId: string;
 }
 
 export interface Status {
