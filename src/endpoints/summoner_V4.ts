@@ -2,7 +2,7 @@ import axios from 'axios';
 import { Summoner } from '../types';
 import { PLATFORM_BASE_URLS, SUMMONER } from '../helpers/constants';
 
-export default class SummonerAPI {
+export default class Summoner_V4 {
   private apiKey: string;
   public region: string;
 

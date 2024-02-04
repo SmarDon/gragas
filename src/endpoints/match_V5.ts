@@ -2,7 +2,7 @@ import axios from 'axios';
 import { REGION_BASE_URLS, MATCH } from '../helpers/constants';
 import { Match } from '../types';
 
-export default class MatchAPI {
+export default class Match_V5 {
   private apiKey: string;
   public region: string;
 

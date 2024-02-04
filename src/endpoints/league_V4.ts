@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { PLATFORM_BASE_URLS, LEAGUE } from '../helpers/constants';
 
-export default class LeagueAPI {
+export default class League_V4 {
   private apiKey: string;
   public region: string;
   constructor(apiKey: string, region: string = 'EUW') {

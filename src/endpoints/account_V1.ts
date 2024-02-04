@@ -2,7 +2,7 @@ import axios from 'axios';
 import { REGION_BASE_URLS, ACCOUNT } from '../helpers/constants';
 import { RiotId } from '../types';
 
-export default class AccountAPI {
+export default class Account_V1 {
   private apiKey: string;
   public region: string;
 

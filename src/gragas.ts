@@ -1,30 +1,30 @@
 import {
-  SummonerAPI,
-  MatchAPI,
-  StatusAPI,
-  ChampionMasteryAPI,
-  AccountAPI,
-  LeagueAPI,
+  Summoner_V4,
+  Match_V5,
+  Status_V4,
+  ChampionMastery_V4,
+  Account_V1,
+  League_V4,
 } from './endpoints/endpoints';
 
 export default class Gragas {
   private apiKey: string;
   public region: string;
-  public status: StatusAPI;
-  public summoner: SummonerAPI;
-  public match: MatchAPI;
-  public championMastery: ChampionMasteryAPI;
-  public account: AccountAPI;
-  public league: LeagueAPI;
+  public status: Status_V4;
+  public summoner: Summoner_V4;
+  public match: Match_V5;
+  public championMastery: ChampionMastery_V4;
+  public account: Account_V1;
+  public league: League_V4;
 
   constructor(apiKey: string, region: string) {
     this.apiKey = apiKey;
     this.region = region;
-    this.status = new StatusAPI(apiKey);
-    this.summoner = new SummonerAPI(apiKey);
-    this.match = new MatchAPI(apiKey);
-    this.championMastery = new ChampionMasteryAPI(apiKey);
-    this.account = new AccountAPI(apiKey);
-    this.league = new LeagueAPI(apiKey);
+    this.status = new Status_V4(apiKey);
+    this.summoner = new Summoner_V4(apiKey);
+    this.match = new Match_V5(apiKey);
+    this.championMastery = new ChampionMastery_V4(apiKey);
+    this.account = new Account_V1(apiKey);
+    this.league = new League_V4(apiKey);
   }
 }

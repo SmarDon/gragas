@@ -2,7 +2,7 @@ import axios from 'axios';
 import { PLATFORM_BASE_URLS, CHAMPION_MASTERY } from '../helpers/constants';
 import { ChampionMastery } from '../types';
 
-export default class ChampionMasteryAPI {
+export default class ChampionMastery_V4 {
   private apiKey: string;
   public region: string;
   constructor(apiKey: string, region: string = 'EUW') {

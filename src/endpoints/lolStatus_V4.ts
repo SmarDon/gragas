@@ -3,7 +3,7 @@ import { STATUS } from '../helpers/constants';
 import { PLATFORM_BASE_URLS } from '../helpers/constants';
 import { Status } from '../types';
 
-export default class StatusAPI {
+export default class Status_V4 {
   private apiKey: string;
   public platform: string;
 
