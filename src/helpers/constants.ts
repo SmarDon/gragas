@@ -57,3 +57,10 @@ export const LEAGUE_V4 = {
 };
 
 export const LEAGUE_EXP_V4 = '/lol/league-exp/v4/entries/';
+
+export const LOL_CHALLENGES_V1 = {
+  CONFIG: '/lol/challenges/v1/challenges/config/',
+  PERCENTILES: '/lol/challenges/v1/challenges/percentiles/',
+  CHALLENGE_BY_ID: '/lol/challenges/v1/challenges/',
+  PLAYER_DATA_BY_PUUID: '/lol/challenges/v1/player-data/',
+};
