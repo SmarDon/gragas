@@ -26,6 +26,8 @@ export const REGION_BASE_URLS: { [key: string]: string } = {
   OC1: 'https://sea.api.riotgames.com',
 };
 
+export const ACCOUNT = '/riot/account/v1/accounts/by-riot-id/';
+
 export const STATUS = '/lol/status/v4/platform-data';
 
 export const SUMMONER = {
@@ -39,5 +41,7 @@ export const MATCH = {
   BY_ID: '/lol/match/v5/matches/',
 };
 
-const puuid =
-  'ZoX7ZzQeA9cgjPso_f-ohEVmvbtS8rpqzjEB2WfqbiJU3frkm_3ErMQurV8X8I7xBFOY5tJ9usy6HQ';
+export const CHAMPION_MASTERY = {
+  BY_PUUID: '/lol/champion-mastery/v4/champion-masteries/by-puuid/',
+  SCORES: '/lol/champion-mastery/v4/scores/by-puuid/',
+};
