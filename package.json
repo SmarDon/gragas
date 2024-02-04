@@ -2,7 +2,12 @@
   "name": "gragas",
   "version": "1.1.0",
   "description": "small api wrapper",
-  "main": "dist/index.js",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "devDependencies": {
     "@types/jest": "^29.5.12",
     "jest": "^29.7.0",
@@ -26,9 +31,6 @@
     "lol",
     "ts",
     "typescript"
-  ],
-  "files": [
-    "dist"
   ],
   "jest": {
     "transform": {
