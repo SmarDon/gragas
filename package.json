@@ -17,7 +17,7 @@
     "tslib": "^2.6.2"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "tsup",
     "test": "jest --config ./jest.config.js"
   },
   "keywords": [
