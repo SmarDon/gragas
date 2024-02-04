@@ -1,6 +1,6 @@
 {
   "name": "gragas",
-  "version": "1.0.8",
+  "version": "1.1.0",
   "description": "small api wrapper",
   "main": "dist/index.js",
   "devDependencies": {
@@ -16,8 +16,7 @@
   },
   "scripts": {
     "build": "tsc",
-    "test": "jest --config ./jest.config.js",
-    "test gragas": "jest ./tests/gragas/gragas.test.ts"
+    "test": "jest --config ./jest.config.js"
   },
   "keywords": [
     "league",
@@ -35,5 +34,13 @@
     }
   },
   "author": "smardon",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SmarDon/gragas.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SmarDon/gragas/issues"
+  },
+  "homepage": "https://github.com/SmarDon/gragas#readme"
 }
