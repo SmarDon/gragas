@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { REGION_BASE_URLS, MATCH } from '../helpers/constants';
+import { REGION_BASE_URLS, MATCH_V5 } from '../helpers/constants';
 import { Match } from '../types';
 
 export default class Match_V5 {
@@ -18,7 +18,7 @@ export default class Match_V5 {
     try {
       const response = await axios.get(
         REGION_BASE_URLS[this.region] +
-          MATCH.BY_PUUID +
+          MATCH_V5.BY_PUUID +
           puuid +
           `/ids?count=${count}&start=${start}`,
         {
@@ -36,7 +36,7 @@ export default class Match_V5 {
   async getMatchById(matchId: string): Promise<Match | null> {
     try {
       const response = await axios.get(
-        REGION_BASE_URLS[this.region] + MATCH.BY_ID + matchId,
+        REGION_BASE_URLS[this.region] + MATCH_V5.BY_ID + matchId,
         {
           headers: {
             'X-Riot-Token': this.apiKey,
@@ -52,7 +52,7 @@ export default class Match_V5 {
   async getMatchTimelineById(matchId: string): Promise<Match | null> {
     try {
       const response = await axios.get(
-        REGION_BASE_URLS[this.region] + MATCH.BY_ID + matchId + '/timeline'
+        REGION_BASE_URLS[this.region] + MATCH_V5.BY_ID + matchId + '/timeline'
       );
       return response.data as Match;
     } catch (error) {

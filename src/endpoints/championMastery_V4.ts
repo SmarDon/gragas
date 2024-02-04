@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { PLATFORM_BASE_URLS, CHAMPION_MASTERY } from '../helpers/constants';
+import { PLATFORM_BASE_URLS, CHAMPION_MASTERY_V4 } from '../helpers/constants';
 import { ChampionMastery } from '../types';
 
 export default class ChampionMastery_V4 {
@@ -14,7 +14,7 @@ export default class ChampionMastery_V4 {
   ): Promise<ChampionMastery[] | null> {
     try {
       const response = await axios.get(
-        PLATFORM_BASE_URLS[this.region] + CHAMPION_MASTERY.BY_PUUID + puuid,
+        PLATFORM_BASE_URLS[this.region] + CHAMPION_MASTERY_V4.BY_PUUID + puuid,
         {
           headers: {
             'X-Riot-Token': this.apiKey,
@@ -34,7 +34,7 @@ export default class ChampionMastery_V4 {
     try {
       const response = await axios.get(
         PLATFORM_BASE_URLS[this.region] +
-          CHAMPION_MASTERY.BY_PUUID +
+          CHAMPION_MASTERY_V4.BY_PUUID +
           puuid +
           '/by-champion' +
           championId,
@@ -56,7 +56,7 @@ export default class ChampionMastery_V4 {
     try {
       const response = await axios.get(
         PLATFORM_BASE_URLS[this.region] +
-          CHAMPION_MASTERY.BY_PUUID +
+          CHAMPION_MASTERY_V4.BY_PUUID +
           puuid +
           '/top',
         {
@@ -76,7 +76,7 @@ export default class ChampionMastery_V4 {
   ): Promise<ChampionMastery[] | null> {
     try {
       const response = await axios.get(
-        PLATFORM_BASE_URLS[this.region] + CHAMPION_MASTERY.SCORES + puuid,
+        PLATFORM_BASE_URLS[this.region] + CHAMPION_MASTERY_V4.SCORES + puuid,
         {
           headers: {
             'X-Riot-Token': this.apiKey,

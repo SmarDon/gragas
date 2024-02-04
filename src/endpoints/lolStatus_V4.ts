@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { STATUS } from '../helpers/constants';
+import { STATUS_V4 } from '../helpers/constants';
 import { PLATFORM_BASE_URLS } from '../helpers/constants';
 import { Status } from '../types';
 
@@ -21,7 +21,7 @@ export default class Status_V4 {
     }
     try {
       const response = await axios.get(
-        PLATFORM_BASE_URLS[this.platform] + STATUS,
+        PLATFORM_BASE_URLS[this.platform] + STATUS_V4,
         {
           headers: {
             'X-Riot-Token': this.apiKey,

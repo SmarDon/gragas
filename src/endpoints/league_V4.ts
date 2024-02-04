@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { PLATFORM_BASE_URLS, LEAGUE } from '../helpers/constants';
+import { PLATFORM_BASE_URLS, LEAGUE_V4 } from '../helpers/constants';
 
 export default class League_V4 {
   private apiKey: string;
@@ -11,7 +11,7 @@ export default class League_V4 {
   async getChallengerLeague(region: string, queue: string): Promise<any> {
     const URL =
       PLATFORM_BASE_URLS[region || this.region] +
-      LEAGUE.BY_QUEUE_CHALLENGER +
+      LEAGUE_V4.BY_QUEUE_CHALLENGER +
       queue;
     try {
       const response = await axios.get(URL, {
@@ -28,7 +28,7 @@ export default class League_V4 {
   async getMasterLeague(region: string, queue: string): Promise<any> {
     const URL =
       PLATFORM_BASE_URLS[region || this.region] +
-      LEAGUE.BY_QUEUE_MASTER +
+      LEAGUE_V4.BY_QUEUE_MASTER +
       queue;
     try {
       const response = await axios.get(URL, {
@@ -46,7 +46,7 @@ export default class League_V4 {
   async getGrandmasterLeague(region: string, queue: string): Promise<any> {
     const URL =
       PLATFORM_BASE_URLS[region || this.region] +
-      LEAGUE.BY_QUEUE_GRANDMASTER +
+      LEAGUE_V4.BY_QUEUE_GRANDMASTER +
       queue;
     try {
       const response = await axios.get(URL, {
@@ -62,7 +62,7 @@ export default class League_V4 {
   }
   async getEntriesBySummoner(summonerId: string): Promise<any> {
     const URL =
-      PLATFORM_BASE_URLS[this.region] + LEAGUE.BY_SUMMONER + summonerId;
+      PLATFORM_BASE_URLS[this.region] + LEAGUE_V4.BY_SUMMONER + summonerId;
     try {
       const response = await axios.get(URL, {
         headers: {
@@ -83,7 +83,7 @@ export default class League_V4 {
   ): Promise<any> {
     const URL =
       PLATFORM_BASE_URLS[this.region] +
-      `${LEAGUE.ALL_ENTIRES}${queue}/${tier}/${division}`;
+      `${LEAGUE_V4.ALL_ENTIRES}${queue}/${tier}/${division}`;
     try {
       const response = await axios.get(URL, {
         headers: {
@@ -98,7 +98,8 @@ export default class League_V4 {
   }
 
   async getLeagueById(leagueId: string): Promise<any> {
-    const URL = PLATFORM_BASE_URLS[this.region] + LEAGUE.BY_LEAGUE + leagueId;
+    const URL =
+      PLATFORM_BASE_URLS[this.region] + LEAGUE_V4.BY_LEAGUE + leagueId;
     try {
       const response = await axios.get(URL, {
         headers: {

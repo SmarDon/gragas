@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { Summoner } from '../types';
-import { PLATFORM_BASE_URLS, SUMMONER } from '../helpers/constants';
+import { PLATFORM_BASE_URLS, SUMMONER_V4 } from '../helpers/constants';
 
 export default class Summoner_V4 {
   private apiKey: string;
@@ -16,7 +16,7 @@ export default class Summoner_V4 {
   ): Promise<Summoner | null> {
     try {
       const response = await axios.get(
-        PLATFORM_BASE_URLS[region] + SUMMONER.BY_NAME + summonerName,
+        PLATFORM_BASE_URLS[region] + SUMMONER_V4.BY_NAME + summonerName,
         {
           headers: {
             'X-Riot-Token': this.apiKey,
@@ -36,7 +36,7 @@ export default class Summoner_V4 {
   ): Promise<Summoner | null> {
     try {
       const response = await axios.get(
-        PLATFORM_BASE_URLS[region] + SUMMONER.BY_PUUID + puuid,
+        PLATFORM_BASE_URLS[region] + SUMMONER_V4.BY_PUUID + puuid,
         {
           headers: {
             'X-Riot-Token': this.apiKey,
