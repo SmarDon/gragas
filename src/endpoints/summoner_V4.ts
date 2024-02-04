@@ -14,15 +14,16 @@ export default class Summoner_V4 {
     summonerName: string,
     region: string
   ): Promise<Summoner | null> {
+    const URL =
+      PLATFORM_BASE_URLS[region || this.region] +
+      SUMMONER_V4.BY_NAME +
+      summonerName;
     try {
-      const response = await axios.get(
-        PLATFORM_BASE_URLS[region] + SUMMONER_V4.BY_NAME + summonerName,
-        {
-          headers: {
-            'X-Riot-Token': this.apiKey,
-          },
-        }
-      );
+      const response = await axios.get(URL, {
+        headers: {
+          'X-Riot-Token': this.apiKey,
+        },
+      });
       return response.data as Summoner;
     } catch (error) {
       console.error('Error fetching summoner:', error);
@@ -34,15 +35,14 @@ export default class Summoner_V4 {
     puuid: string,
     region: string
   ): Promise<Summoner | null> {
+    const URL =
+      PLATFORM_BASE_URLS[region || this.region] + SUMMONER_V4.BY_PUUID + puuid;
     try {
-      const response = await axios.get(
-        PLATFORM_BASE_URLS[region] + SUMMONER_V4.BY_PUUID + puuid,
-        {
-          headers: {
-            'X-Riot-Token': this.apiKey,
-          },
-        }
-      );
+      const response = await axios.get(URL, {
+        headers: {
+          'X-Riot-Token': this.apiKey,
+        },
+      });
       return response.data as Summoner;
     } catch (error) {
       console.error('Error fetching summoner:', error);
