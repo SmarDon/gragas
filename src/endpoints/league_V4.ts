@@ -60,4 +60,55 @@ export default class League_V4 {
     }
     return null;
   }
+  async getEntriesBySummoner(summonerId: string): Promise<any> {
+    const URL =
+      PLATFORM_BASE_URLS[this.region] + LEAGUE.BY_SUMMONER + summonerId;
+    try {
+      const response = await axios.get(URL, {
+        headers: {
+          'X-Riot-Token': this.apiKey,
+        },
+      });
+      return response.data;
+    } catch (error) {
+      console.error('Error fetching entries by summoner:', error);
+    }
+    return null;
+  }
+
+  async getEntriesByQueueTierDivision(
+    queue: string,
+    tier: string,
+    division: string
+  ): Promise<any> {
+    const URL =
+      PLATFORM_BASE_URLS[this.region] +
+      `${LEAGUE.ALL_ENTIRES}${queue}/${tier}/${division}`;
+    try {
+      const response = await axios.get(URL, {
+        headers: {
+          'X-Riot-Token': this.apiKey,
+        },
+      });
+      return response.data;
+    } catch (error) {
+      console.error('Error fetching entries by queue/tier/division:', error);
+    }
+    return null;
+  }
+
+  async getLeagueById(leagueId: string): Promise<any> {
+    const URL = PLATFORM_BASE_URLS[this.region] + LEAGUE.BY_LEAGUE + leagueId;
+    try {
+      const response = await axios.get(URL, {
+        headers: {
+          'X-Riot-Token': this.apiKey,
+        },
+      });
+      return response.data;
+    } catch (error) {
+      console.error('Error fetching league by ID:', error);
+    }
+    return null;
+  }
 }
