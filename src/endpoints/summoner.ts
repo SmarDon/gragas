@@ -13,7 +13,7 @@ export default class SummonerAPI {
   async getSummonerByName(
     summonerName: string,
     region: string
-  ): Promise<Summoner | void> {
+  ): Promise<Summoner | null> {
     try {
       const response = await axios.get(
         PLATFORM_BASE_URLS[region] + SUMMONER.BY_NAME + summonerName,
@@ -27,12 +27,13 @@ export default class SummonerAPI {
     } catch (error) {
       console.error('Error fetching summoner:', error);
     }
+    return null;
   }
 
   async getSummonerByPuuid(
     puuid: string,
     region: string
-  ): Promise<Summoner | void> {
+  ): Promise<Summoner | null> {
     try {
       const response = await axios.get(
         PLATFORM_BASE_URLS[region] + SUMMONER.BY_PUUID + puuid,
@@ -46,5 +47,6 @@ export default class SummonerAPI {
     } catch (error) {
       console.error('Error fetching summoner:', error);
     }
+    return null;
   }
 }
