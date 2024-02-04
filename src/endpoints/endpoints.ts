@@ -4,6 +4,7 @@ import Status_V4 from './lolStatus_V4';
 import ChampionMastery_V4 from './championMastery_V4';
 import Account_V1 from './account_V1';
 import League_V4 from './league_V4';
+import LolChallenges_V1 from './lolChallenges_V1';
 
 export {
   Summoner_V4,
@@ -12,4 +13,5 @@ export {
   ChampionMastery_V4,
   Account_V1,
   League_V4,
+  LolChallenges_V1,
 };
