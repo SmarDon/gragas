@@ -64,3 +64,8 @@ export const LOL_CHALLENGES_V1 = {
   CHALLENGE_BY_ID: '/lol/challenges/v1/challenges/',
   PLAYER_DATA_BY_PUUID: '/lol/challenges/v1/player-data/',
 };
+
+export const SPECTATOR_V4 = {
+  BY_ENCRYPTED_SUMMONER_ID: '/lol/spectator/v4/active-games/by-summoner/',
+  FEATURED_GAMES: '/lol/spectator/v4/featured-games',
+};
