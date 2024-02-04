@@ -6,10 +6,11 @@ import {
   Account_V1,
   League_V4,
   LolChallenges_V1,
+  Spectator_V4,
 } from './endpoints/endpoints';
 
 export default class Gragas {
-  private apiKey: string;
+  #apiKey: string;
   public region: string;
   public status: Status_V4;
   public summoner: Summoner_V4;
@@ -18,9 +19,10 @@ export default class Gragas {
   public account: Account_V1;
   public league: League_V4;
   public lolChallenges: LolChallenges_V1;
+  public spectator: Spectator_V4;
 
   constructor(apiKey: string, region: string = 'EUW') {
-    this.apiKey = apiKey;
+    this.#apiKey = apiKey;
     this.region = region;
     this.status = new Status_V4(apiKey);
     this.summoner = new Summoner_V4(apiKey);
@@ -29,5 +31,6 @@ export default class Gragas {
     this.account = new Account_V1(apiKey);
     this.league = new League_V4(apiKey);
     this.lolChallenges = new LolChallenges_V1(apiKey);
+    this.spectator = new Spectator_V4(apiKey);
   }
 }
