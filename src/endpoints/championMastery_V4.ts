@@ -3,10 +3,10 @@ import { PLATFORM_BASE_URLS, CHAMPION_MASTERY_V4 } from '../helpers/constants';
 import { ChampionMastery } from '../types';
 
 export default class ChampionMastery_V4 {
-  private apiKey: string;
+  #apiKey: string;
   public region: string;
   constructor(apiKey: string, region: string = 'EUW') {
-    this.apiKey = apiKey;
+    this.#apiKey = apiKey;
     this.region = region;
   }
   async getChampionMasteryByPuuid(
@@ -17,7 +17,7 @@ export default class ChampionMastery_V4 {
         PLATFORM_BASE_URLS[this.region] + CHAMPION_MASTERY_V4.BY_PUUID + puuid,
         {
           headers: {
-            'X-Riot-Token': this.apiKey,
+            'X-Riot-Token': this.#apiKey,
           },
         }
       );
@@ -40,7 +40,7 @@ export default class ChampionMastery_V4 {
           championId,
         {
           headers: {
-            'X-Riot-Token': this.apiKey,
+            'X-Riot-Token': this.#apiKey,
           },
         }
       );
@@ -61,7 +61,7 @@ export default class ChampionMastery_V4 {
           '/top',
         {
           headers: {
-            'X-Riot-Token': this.apiKey,
+            'X-Riot-Token': this.#apiKey,
           },
         }
       );
@@ -79,7 +79,7 @@ export default class ChampionMastery_V4 {
         PLATFORM_BASE_URLS[this.region] + CHAMPION_MASTERY_V4.SCORES + puuid,
         {
           headers: {
-            'X-Riot-Token': this.apiKey,
+            'X-Riot-Token': this.#apiKey,
           },
         }
       );

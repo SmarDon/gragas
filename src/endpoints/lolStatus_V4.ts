@@ -4,11 +4,11 @@ import { PLATFORM_BASE_URLS } from '../helpers/constants';
 import { Status } from '../types';
 
 export default class Status_V4 {
-  private apiKey: string;
+  #apiKey: string;
   public platform: string;
 
   constructor(apiKey: string, platform: string = 'EUW') {
-    this.apiKey = apiKey;
+    this.#apiKey = apiKey;
     this.platform = platform;
   }
   updatePlatform = (platform: string) => {
@@ -24,7 +24,7 @@ export default class Status_V4 {
         PLATFORM_BASE_URLS[this.platform] + STATUS_V4,
         {
           headers: {
-            'X-Riot-Token': this.apiKey,
+            'X-Riot-Token': this.#apiKey,
           },
         }
       );

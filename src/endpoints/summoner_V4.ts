@@ -3,11 +3,11 @@ import { Summoner } from '../types';
 import { PLATFORM_BASE_URLS, SUMMONER_V4 } from '../helpers/constants';
 
 export default class Summoner_V4 {
-  private apiKey: string;
+  #apiKey: string;
   public region: string;
 
   constructor(apiKey: string, region: string = 'EUW') {
-    this.apiKey = apiKey;
+    this.#apiKey = apiKey;
     this.region = region;
   }
   async getSummonerByName(
@@ -21,7 +21,7 @@ export default class Summoner_V4 {
     try {
       const response = await axios.get(URL, {
         headers: {
-          'X-Riot-Token': this.apiKey,
+          'X-Riot-Token': this.#apiKey,
         },
       });
       return response.data as Summoner;
@@ -40,7 +40,7 @@ export default class Summoner_V4 {
     try {
       const response = await axios.get(URL, {
         headers: {
-          'X-Riot-Token': this.apiKey,
+          'X-Riot-Token': this.#apiKey,
         },
       });
       return response.data as Summoner;

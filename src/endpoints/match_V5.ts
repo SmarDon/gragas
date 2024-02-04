@@ -3,11 +3,11 @@ import { REGION_BASE_URLS, MATCH_V5 } from '../helpers/constants';
 import { Match } from '../types';
 
 export default class Match_V5 {
-  private apiKey: string;
+  #apiKey: string;
   public region: string;
 
   constructor(apiKey: string, region: string = 'EUW') {
-    this.apiKey = apiKey;
+    this.#apiKey = apiKey;
     this.region = region;
   }
   async getMatchesByPuuid(
@@ -23,7 +23,7 @@ export default class Match_V5 {
           `/ids?count=${count}&start=${start}`,
         {
           headers: {
-            'X-Riot-Token': this.apiKey,
+            'X-Riot-Token': this.#apiKey,
           },
         }
       );
@@ -39,7 +39,7 @@ export default class Match_V5 {
         REGION_BASE_URLS[this.region] + MATCH_V5.BY_ID + matchId,
         {
           headers: {
-            'X-Riot-Token': this.apiKey,
+            'X-Riot-Token': this.#apiKey,
           },
         }
       );

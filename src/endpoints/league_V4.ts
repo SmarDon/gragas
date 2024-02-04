@@ -2,10 +2,10 @@ import axios from 'axios';
 import { PLATFORM_BASE_URLS, LEAGUE_V4 } from '../helpers/constants';
 
 export default class League_V4 {
-  private apiKey: string;
+  #apiKey: string;
   public region: string;
   constructor(apiKey: string, region: string = 'EUW') {
-    this.apiKey = apiKey;
+    this.#apiKey = apiKey;
     this.region = region;
   }
   async getChallengerLeague(region: string, queue: string): Promise<any> {
@@ -16,7 +16,7 @@ export default class League_V4 {
     try {
       const response = await axios.get(URL, {
         headers: {
-          'X-Riot-Token': this.apiKey,
+          'X-Riot-Token': this.#apiKey,
         },
       });
       return response.data;
@@ -33,7 +33,7 @@ export default class League_V4 {
     try {
       const response = await axios.get(URL, {
         headers: {
-          'X-Riot-Token': this.apiKey,
+          'X-Riot-Token': this.#apiKey,
         },
       });
       return response.data;
@@ -51,7 +51,7 @@ export default class League_V4 {
     try {
       const response = await axios.get(URL, {
         headers: {
-          'X-Riot-Token': this.apiKey,
+          'X-Riot-Token': this.#apiKey,
         },
       });
       return response.data;
@@ -66,7 +66,7 @@ export default class League_V4 {
     try {
       const response = await axios.get(URL, {
         headers: {
-          'X-Riot-Token': this.apiKey,
+          'X-Riot-Token': this.#apiKey,
         },
       });
       return response.data;
@@ -87,7 +87,7 @@ export default class League_V4 {
     try {
       const response = await axios.get(URL, {
         headers: {
-          'X-Riot-Token': this.apiKey,
+          'X-Riot-Token': this.#apiKey,
         },
       });
       return response.data;
@@ -103,7 +103,7 @@ export default class League_V4 {
     try {
       const response = await axios.get(URL, {
         headers: {
-          'X-Riot-Token': this.apiKey,
+          'X-Riot-Token': this.#apiKey,
         },
       });
       return response.data;
