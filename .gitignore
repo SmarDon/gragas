@@ -1,4 +1,9 @@
 node_modules/
-dist/
-tests/
 .env
+
+# Ignore test-related files
+/coverage.data
+/coverage/
+
+# build files
+dist/
