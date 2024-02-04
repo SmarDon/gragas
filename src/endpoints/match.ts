@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { PLATFORM_BASE_URLS, MATCH } from '../helpers/constants';
+import { REGION_BASE_URLS, MATCH } from '../helpers/constants';
 import { Match } from '../types';
 
 export default class MatchAPI {
@@ -12,12 +12,15 @@ export default class MatchAPI {
   }
   async getMatchesByPuuid(
     puuid: string,
-    count: number,
-    index: number
-  ): Promise<Match[] | void> {
+    count: number | 20,
+    start: number | 0
+  ): Promise<Match[] | null> {
     try {
       const response = await axios.get(
-        PLATFORM_BASE_URLS[this.region] + MATCH.BY_PUUID + puuid,
+        REGION_BASE_URLS[this.region] +
+          MATCH.BY_PUUID +
+          puuid +
+          `/ids?count=${count}&start=${start}`,
         {
           headers: {
             'X-Riot-Token': this.apiKey,
@@ -28,11 +31,12 @@ export default class MatchAPI {
     } catch (error) {
       console.error('Error fetching match ids:', error);
     }
+    return null;
   }
-  async getMatchById(matchId: string): Promise<Match | void> {
+  async getMatchById(matchId: string): Promise<Match | null> {
     try {
       const response = await axios.get(
-        PLATFORM_BASE_URLS[this.region] + MATCH.BY_ID + matchId,
+        REGION_BASE_URLS[this.region] + MATCH.BY_ID + matchId,
         {
           headers: {
             'X-Riot-Token': this.apiKey,
@@ -43,20 +47,17 @@ export default class MatchAPI {
     } catch (error) {
       console.error('Error fetching match ids:', error);
     }
+    return null;
   }
-  async getMatchTimelineById(matchId: string): Promise<Match | void> {
+  async getMatchTimelineById(matchId: string): Promise<Match | null> {
     try {
       const response = await axios.get(
-        PLATFORM_BASE_URLS[this.region] + MATCH.BY_ID + matchId + '/timeline',
-        {
-          headers: {
-            'X-Riot-Token': this.apiKey,
-          },
-        }
+        REGION_BASE_URLS[this.region] + MATCH.BY_ID + matchId + '/timeline'
       );
       return response.data as Match;
     } catch (error) {
       console.error('Error fetching match ids:', error);
     }
+    return null;
   }
 }
