@@ -32,3 +32,4 @@ const riotAccount = await gragas.account.getPuuid('SmarDon', 'EUW1');
 - Add endpoints for TFT and Valorant.(I don't really play those so I don't know when this will happen.)
 - Fix way of handeling URLs.
 - Add tests, got some locally, but should be updated and less specific before I add them to repo.
+- Figure out how to handle publishing to NPM.
