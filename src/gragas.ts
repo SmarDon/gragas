@@ -5,6 +5,7 @@ import {
   ChampionMastery_V4,
   Account_V1,
   League_V4,
+  LolChallenges_V1,
 } from './endpoints/endpoints';
 
 export default class Gragas {
@@ -16,8 +17,9 @@ export default class Gragas {
   public championMastery: ChampionMastery_V4;
   public account: Account_V1;
   public league: League_V4;
+  public lolChallenges: LolChallenges_V1;
 
-  constructor(apiKey: string, region: string) {
+  constructor(apiKey: string, region: string = 'EUW') {
     this.apiKey = apiKey;
     this.region = region;
     this.status = new Status_V4(apiKey);
@@ -26,5 +28,6 @@ export default class Gragas {
     this.championMastery = new ChampionMastery_V4(apiKey);
     this.account = new Account_V1(apiKey);
     this.league = new League_V4(apiKey);
+    this.lolChallenges = new LolChallenges_V1(apiKey);
   }
 }
