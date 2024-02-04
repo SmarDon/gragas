@@ -1,3 +1,4 @@
+// Riot API URL CONSTANTS
 export const PLATFORM_BASE_URLS: { [key: string]: string } = {
   EUW: 'https://euw1.api.riotgames.com',
   EUNE: 'https://eun1.api.riotgames.com',
